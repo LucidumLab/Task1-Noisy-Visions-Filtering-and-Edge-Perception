@@ -1,0 +1,251 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 6.2.9200 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      CMakeCCompilerId.c
+      Microsoft (R) Incremental Linker Version 14.37.32824.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCCompilerId.exe 
+      CMakeCCompilerId.obj 
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+      
+      The C compiler identification is MSVC, found in:
+        D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/3.29.2/CompilerIdC/CMakeCCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:1216 (message)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting C compiler /showIncludes prefix:
+        main.c
+        Note: including file: D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.37.32824 for x64
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      CMakeCXXCompilerId.cpp
+      Microsoft (R) Incremental Linker Version 14.37.32824.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCXXCompilerId.exe 
+      CMakeCXXCompilerId.obj 
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/3.29.2/CompilerIdCXX/CMakeCXXCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:1216 (message)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:250 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        main.c
+        Note: including file: D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:64 (try_compile)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-vim4zt"
+      binary: "D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-vim4zt"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-vim4zt'
+        
+        Run Build Command(s): C:/Strawberry/c/bin/cmake.exe -E env VERBOSE=1 C:/Strawberry/c/bin/mingw32-make.exe -f Makefile cmTC_244b6/fast
+        C:/Strawberry/c/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_244b6.dir\\build.make CMakeFiles/cmTC_244b6.dir/build
+        mingw32-make[1]: Entering directory 'D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-vim4zt'
+        Building C object CMakeFiles/cmTC_244b6.dir/CMakeCCompilerABI.c.obj
+        C:\\Strawberry\\c\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_244b6.dir\\CMakeCCompilerABI.c.obj.d --working-dir="D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vim4zt" --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_244b6.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_244b6.dir/ /FS -c C:\\Strawberry\\c\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c
+        CMakeCCompilerABI.c
+        Linking C executable cmTC_244b6.exe
+        C:\\Strawberry\\c\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_244b6.dir\\link.txt --verbose=1
+        C:\\Strawberry\\c\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_244b6.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_244b6.dir\\objects1.rsp  /out:cmTC_244b6.exe /implib:cmTC_244b6.lib /pdb:"D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vim4zt\\cmTC_244b6.pdb" /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_244b6.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_244b6.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_244b6.dir/manifest.res CMakeFiles\\cmTC_244b6.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_244b6.dir\\objects1.rsp /out:cmTC_244b6.exe /implib:cmTC_244b6.lib /pdb:D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vim4zt\\cmTC_244b6.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_244b6.dir/intermediate.manifest CMakeFiles\\cmTC_244b6.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_244b6.dir/intermediate.manifest /out:CMakeFiles\\cmTC_244b6.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_244b6.dir/manifest.res CMakeFiles\\cmTC_244b6.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_244b6.dir\\objects1.rsp /out:cmTC_244b6.exe /implib:cmTC_244b6.lib /pdb:D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\CMakeScratch\\TryCompile-vim4zt\\cmTC_244b6.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_244b6.dir/intermediate.manifest CMakeFiles\\cmTC_244b6.dir/manifest.res
+        mingw32-make[1]: Leaving directory 'D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-vim4zt'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:170 (message)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/PROGRA~1/MICROS~3/2022/COMMUN~1/VC/Tools/MSVC/1437~1.328/bin/Hostx64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:207 (cmake_determine_linker_id)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/PROGRA~1/MICROS~3/2022/COMMUN~1/VC/Tools/MSVC/1437~1.328/bin/Hostx64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.37.32824.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:64 (try_compile)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-kqnsd5"
+      binary: "D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-kqnsd5"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-kqnsd5'
+        
+        Run Build Command(s): C:/Strawberry/c/bin/cmake.exe -E env VERBOSE=1 C:/Strawberry/c/bin/mingw32-make.exe -f Makefile cmTC_b7c6c/fast
+        C:/Strawberry/c/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_b7c6c.dir\\build.make CMakeFiles/cmTC_b7c6c.dir/build
+        mingw32-make[1]: Entering directory 'D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-kqnsd5'
+        Building CXX object CMakeFiles/cmTC_b7c6c.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\Strawberry\\c\\bin\\cmake.exe -E cmake_cl_compile_depends --dep-file=CMakeFiles\\cmTC_b7c6c.dir\\CMakeCXXCompilerABI.cpp.obj.d --working-dir="D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqnsd5" --filter-prefix="Note: including file: " -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\\cmTC_b7c6c.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_b7c6c.dir/ /FS -c C:\\Strawberry\\c\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp
+        CMakeCXXCompilerABI.cpp
+        Linking CXX executable cmTC_b7c6c.exe
+        C:\\Strawberry\\c\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_b7c6c.dir\\link.txt --verbose=1
+        C:\\Strawberry\\c\\bin\\cmake.exe -E vs_link_exe --intdir=CMakeFiles\\cmTC_b7c6c.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests -- C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b7c6c.dir\\objects1.rsp  /out:cmTC_b7c6c.exe /implib:cmTC_b7c6c.lib /pdb:"D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqnsd5\\cmTC_b7c6c.pdb" /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+        Visual Studio Incremental Link with embedded manifests
+        Create CMakeFiles\\cmTC_b7c6c.dir/manifest.rc
+        Create empty: CMakeFiles\\cmTC_b7c6c.dir/embed.manifest
+        RC Pass 1:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_b7c6c.dir/manifest.res CMakeFiles\\cmTC_b7c6c.dir/manifest.rc
+        LINK Pass 1:
+        C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b7c6c.dir\\objects1.rsp /out:cmTC_b7c6c.exe /implib:cmTC_b7c6c.lib /pdb:D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqnsd5\\cmTC_b7c6c.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_b7c6c.dir/intermediate.manifest CMakeFiles\\cmTC_b7c6c.dir/manifest.res
+        MT:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe /nologo /manifest CMakeFiles\\cmTC_b7c6c.dir/intermediate.manifest /out:CMakeFiles\\cmTC_b7c6c.dir/embed.manifest /notify_update
+        RC Pass 2:
+        C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe /fo CMakeFiles\\cmTC_b7c6c.dir/manifest.res CMakeFiles\\cmTC_b7c6c.dir/manifest.rc
+        FINAL LINK:
+        C:\\PROGRA~1\\MICROS~3\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1437~1.328\\bin\\Hostx64\\x64\\link.exe /nologo @CMakeFiles\\cmTC_b7c6c.dir\\objects1.rsp /out:cmTC_b7c6c.exe /implib:cmTC_b7c6c.lib /pdb:D:\\SBME\\3rd Year\\CV\\Tasks\\LucidumLab\\Task1-Noisy-Visions-Filtering-and-Edge-Perception\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kqnsd5\\cmTC_b7c6c.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_b7c6c.dir/intermediate.manifest CMakeFiles\\cmTC_b7c6c.dir/manifest.res
+        mingw32-make[1]: Leaving directory 'D:/SBME/3rd Year/CV/Tasks/LucidumLab/Task1-Noisy-Visions-Filtering-and-Edge-Perception/build/CMakeFiles/CMakeScratch/TryCompile-kqnsd5'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:170 (message)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/PROGRA~1/MICROS~3/2022/COMMUN~1/VC/Tools/MSVC/1437~1.328/bin/Hostx64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:207 (cmake_determine_linker_id)"
+      - "C:/Strawberry/c/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/PROGRA~1/MICROS~3/2022/COMMUN~1/VC/Tools/MSVC/1437~1.328/bin/Hostx64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.37.32824.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+...
