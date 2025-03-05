@@ -74,6 +74,7 @@ def apply_gaussian_filter(img, kernel_size=3, sigma=1.0):
     kernel = gaussian_kernel(kernel_size, sigma)
     return convolve(img, kernel)
 
+# NEED TO USE THE custom_pad FUNCTION AND THE convolve FUNCTION
 def apply_median_filter(img, kernel_size=3):
     """
     Applies a median filter.

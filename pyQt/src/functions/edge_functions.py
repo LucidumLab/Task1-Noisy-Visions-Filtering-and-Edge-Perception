@@ -34,6 +34,7 @@ def compute_sobel_gradients(image):
 def non_maximum_suppression(G, theta):
     height, width = G.shape
     nms = np.zeros_like(G, dtype=np.uint8)
+    # WHY DOES WE DO IT AGAIN IN THIS FUNCTION?? (WE HAVE DONE IT ONCE IN THE FUNCTION OF CANNY)
     theta = theta % 180
 
     for y in range(1, height - 1):
@@ -53,6 +54,7 @@ def non_maximum_suppression(G, theta):
 
     return nms
 
+# min_edgeval SHOULD BE 128 FOR EXAMPLE
 def apply_double_thresholding(image, low_threshold, high_threshold, max_edge_val=255, min_edge_val=0):
     strong_edges = np.zeros_like(image)
     weak_edges = np.zeros_like(image)
@@ -71,6 +73,7 @@ def apply_hysteresis(strong_edges, weak_edges, max_edge_val=255):
         for dy in [-1, 0, 1]:
             for dx in [-1, 0, 1]:
                 ny, nx = y + dy, x + dx
+                # THIS CONDITION IS INCORRECT, IT WILL DETECT PIXELS THAT ARE NOT WEAK EDGES TO BE STRONG EDGES (weak_edges[ny, nx] == 128)
                 if 0 <= ny < height and 0 <= nx < width and weak_edges[ny, nx] != 0:
                     final_edges[ny, nx] = max_edge_val
                     weak_edges[ny, nx] = 0

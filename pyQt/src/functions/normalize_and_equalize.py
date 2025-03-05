@@ -41,7 +41,7 @@ def equalize_grayscale_image(image):
     """Equalizes a grayscale image."""
     histogram = compute_histogram(image)
     cdf = compute_cdf(histogram)
-    total_pixels = image.shape[0] * image.shape[1]
+    #total_pixels = image.shape[0] * image.shape[1]
     cdf_normalized = normalize(cdf)
     equalized_image = apply_histogram_equalization(image, cdf_normalized)
     return equalized_image
