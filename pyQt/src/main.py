@@ -167,33 +167,66 @@ class Feature_Detection_Frame(QFrame):
         grid_layout.setAlignment(Qt.AlignCenter)
         main_layout.addLayout(grid_layout)
 
-        
-        self.original_image = QLabel("Original Image")
-        self.original_image.setObjectName("original_label")
-        self.original_image.setFixedSize(600, 425)
-        self.original_image.setAlignment(Qt.AlignCenter)
-        grid_layout.addWidget(self.original_image, 0, 0)
+        self.image_1 = QLabel("Image 1")
+        self.image_1.setObjectName("original_label")
+        self.image_1.setFixedSize(600, 425)
+        self.image_1.setAlignment(Qt.AlignCenter)
+        grid_layout.addWidget(self.image_1, 0, 0)
 
-        
-        self.template_image = QLabel("Template Image")
-        self.template_image.setObjectName("template_label")
-        self.template_image.setFixedSize(600, 425)
-        self.template_image.setAlignment(Qt.AlignCenter)
-        grid_layout.addWidget(self.template_image, 0, 1)
+        self.image_2 = QLabel("Image 2")
+        self.image_2.setObjectName("template_label")
+        self.image_2.setFixedSize(600, 425)
+        self.image_2.setAlignment(Qt.AlignCenter)
+        grid_layout.addWidget(self.image_2, 0, 1)
 
-        
         self.roi_image = QLabel("ROI Image")
         self.roi_image.setObjectName("roi_label")
         self.roi_image.setFixedSize(600, 425)
         self.roi_image.setAlignment(Qt.AlignCenter)
         grid_layout.addWidget(self.roi_image, 1, 0)
 
-        
         self.confusion_image = QLabel("Confusion Matrix")
         self.confusion_image.setObjectName("confusion_label")
         self.confusion_image.setFixedSize(600, 425)
         self.confusion_image.setAlignment(Qt.AlignCenter)
         grid_layout.addWidget(self.confusion_image, 1, 1)
+
+
+    def display_image(self, image, label_number):
+        """
+        Displays the given image in the specified label.
+
+        Args:
+            image (numpy.ndarray): The image to display.
+            label_number (int): The label number (1 for Original, 2 for Template, 3 for ROI, 4 for Confusion Matrix).
+        """
+        if image is None:
+            raise ValueError("The image cannot be None.")
+
+        if len(image.shape) == 3: 
+            h, w, ch = image.shape
+            bytes_per_line = ch * w
+            qimg = QImage(image.data, w, h, bytes_per_line, QImage.Format_RGB888)
+        elif len(image.shape) == 2:  
+            h, w = image.shape
+            qimg = QImage(image.data, w, h, w, QImage.Format_Grayscale8)
+        else:
+            raise ValueError("Unsupported image format. The image must be 2D (grayscale) or 3D (color).")
+
+        pixmap = QPixmap.fromImage(qimg)
+
+        if label_number == 1:
+            self.image_1.setPixmap(pixmap.scaled(self.image_1.width(), self.image_1.height(), Qt.KeepAspectRatio))
+        elif label_number == 2:
+            self.image_2.setPixmap(pixmap.scaled(self.image_2.width(), self.image_2.height(), Qt.KeepAspectRatio))
+        elif label_number == 3:
+            self.roi_image.setPixmap(pixmap.scaled(self.roi_image.width(), self.roi_image.height(), Qt.KeepAspectRatio))
+        elif label_number == 4:
+            self.confusion_image.setPixmap(pixmap.scaled(self.confusion_image.width(), self.confusion_image.height(), Qt.KeepAspectRatio))
+        else:
+            raise ValueError("Invalid label number. Must be 1 (Original), 2 (Template), 3 (ROI), or 4 (Confusion Matrix).")
+
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -962,6 +995,9 @@ def main():
     window.show()
     sys.exit(app.exec_())
 
+
+import cv2
+import numpy as np
+
 if __name__ == "__main__":
     main()
-
