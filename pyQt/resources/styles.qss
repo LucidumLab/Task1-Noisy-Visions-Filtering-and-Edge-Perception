@@ -97,8 +97,8 @@ QLabel {
     font: 600 12pt "Segoe UI";
 }
 
-QLabel#lbl_image {
-    background-color: rgb(4, 3, 26);
+QLabel#lbl_image,#confusion_label,#roi_label,#template_label,#original_label {
+    background-color: rgb(1, 1, 11);
     color: white;
     border: 2px solid rgb(40, 57, 153);
 }

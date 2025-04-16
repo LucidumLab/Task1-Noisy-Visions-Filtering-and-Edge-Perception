@@ -9,8 +9,9 @@ from processor_factory import ProcessorFactory
 from classes.histogram_processor import HistogramVisualizationWidget
 import numpy as np
 from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QPushButton, QLabel, QFileDialog, QFrame,QTabWidget,QSpacerItem,QSizePolicy,
-    QVBoxLayout, QWidget,QMessageBox, QComboBox, QSpinBox, QDoubleSpinBox, QHBoxLayout, QLineEdit, QCheckBox,
+    QApplication, QMainWindow, QPushButton, QLabel, QFileDialog, QFrame, QTabWidget, QSpacerItem, QSizePolicy,
+    QVBoxLayout, QWidget, QMessageBox, QComboBox, QSpinBox, QDoubleSpinBox, QHBoxLayout, QLineEdit, QCheckBox,
+    QStackedWidget, QGridLayout
 )
 
 from processor_factory import ProcessorFactory
@@ -27,7 +28,7 @@ import numpy as np
 import cv2
 
 from PyQt5.QtWidgets import (
-    QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton,
+    QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton,QComboBox, QSpinBox,QDoubleSpinBox, QFrame
 )
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
@@ -42,7 +43,157 @@ from tabs.ThresholdingTab import ThresholdingTab
 from tabs.FrequencyFilterTab import FrequencyFilterTab
 from tabs.HybridImageTab import HybridImageTab
 
+class Feature_DetectionTab(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
 
+        # Main layout for the tab
+        main_layout = QVBoxLayout(self)
+        main_layout.setAlignment(Qt.AlignTop)
+
+        # Edge Detector Selection
+        edge_detector_group = QFrame()
+        edge_detector_group.setObjectName("edge_detector_group")
+        edge_detector_layout = QVBoxLayout(edge_detector_group)
+
+        # === Edge Type Frame ===
+        self.edgeTypeFrame = QFrame()
+        edge_type_layout = QHBoxLayout(self.edgeTypeFrame)
+        edge_type_layout.addWidget(QLabel("Edge Detector"))
+        self.edgeType = QComboBox()
+        self.edgeType.addItems(["canny", "sobel", "prewitt", "roberts"])
+        self.edgeType.currentTextChanged.connect(self.update_edge_params_visibility)
+        edge_type_layout.addWidget(self.edgeType)
+        edge_detector_layout.addWidget(self.edgeTypeFrame)
+
+        # === Kernel Size Frame ===
+        self.kernelSizeFrame = QFrame()
+        kernel_size_layout = QHBoxLayout(self.kernelSizeFrame)
+        kernel_size_layout.addWidget(QLabel("Kernel Size"))
+        self.kernelSize = QSpinBox()
+        self.kernelSize.setRange(1, 15)
+        self.kernelSize.setValue(3)
+        kernel_size_layout.addWidget(self.kernelSize)
+        edge_detector_layout.addWidget(self.kernelSizeFrame)
+
+        # === Low Threshold Frame ===
+        self.lowThresholdFrame = QFrame()
+        low_threshold_layout = QHBoxLayout(self.lowThresholdFrame)
+        low_threshold_layout.addWidget(QLabel("Low Threshold"))
+        self.lowThreshold = QSpinBox()
+        self.lowThreshold.setRange(0, 255)
+        self.lowThreshold.setValue(50)
+        low_threshold_layout.addWidget(self.lowThreshold)
+        edge_detector_layout.addWidget(self.lowThresholdFrame)
+
+        # === High Threshold Frame ===
+        self.highThresholdFrame = QFrame()
+        high_threshold_layout = QHBoxLayout(self.highThresholdFrame)
+        high_threshold_layout.addWidget(QLabel("High Threshold"))
+        self.highThreshold = QSpinBox()
+        self.highThreshold.setRange(0, 255)
+        self.highThreshold.setValue(150)
+        high_threshold_layout.addWidget(self.highThreshold)
+        edge_detector_layout.addWidget(self.highThresholdFrame)
+
+        main_layout.addWidget(edge_detector_group)
+
+        # Feature Detector Selection
+        feature_detector_group = QFrame()
+        feature_detector_group.setObjectName("feature_detector_group")
+        feature_detector_layout = QVBoxLayout(feature_detector_group)
+
+        # === Feature Type Frame ===
+        self.featureTypeFrame = QFrame()
+        feature_type_layout = QHBoxLayout(self.featureTypeFrame)
+        feature_type_layout.addWidget(QLabel("Feature Detector"))
+        self.featureType = QComboBox()
+        self.featureType.addItems(["MOPs", "SIFT", "Harris"])
+        self.featureType.currentTextChanged.connect(self.update_feature_params_visibility)
+        feature_type_layout.addWidget(self.featureType)
+        feature_detector_layout.addWidget(self.featureTypeFrame)
+
+        # === Harris Controls Frame ===
+        self.harrisFrame = QFrame()
+        harris_layout = QHBoxLayout(self.harrisFrame)
+        self.harrisKLabel = QLabel("Harris K")
+        self.harrisK = QDoubleSpinBox()
+        self.harrisK.setRange(0.01, 0.1)
+        self.harrisK.setSingleStep(0.01)
+        self.harrisK.setValue(0.04)
+        harris_layout.addWidget(self.harrisKLabel)
+        harris_layout.addWidget(self.harrisK)
+        feature_detector_layout.addWidget(self.harrisFrame)
+
+        # === SIFT Controls Frame ===
+        self.siftFrame = QFrame()
+        sift_layout = QHBoxLayout(self.siftFrame)
+        self.siftFeaturesLabel = QLabel("SIFT Features")
+        self.siftFeatures = QSpinBox()
+        self.siftFeatures.setRange(1, 5000)
+        self.siftFeatures.setValue(500)
+        sift_layout.addWidget(self.siftFeaturesLabel)
+        sift_layout.addWidget(self.siftFeatures)
+        feature_detector_layout.addWidget(self.siftFrame)
+
+        main_layout.addWidget(feature_detector_group)
+
+        # Update visibility initially
+        self.update_edge_params_visibility()
+        self.update_feature_params_visibility()
+
+    def update_edge_params_visibility(self):
+        edge_type = self.edgeType.currentText()
+        is_canny = edge_type == "canny"
+
+        # Show/Hide Low and High Threshold frames together
+        self.lowThresholdFrame.setVisible(is_canny)
+        self.highThresholdFrame.setVisible(is_canny)
+
+    def update_feature_params_visibility(self):
+        feature_type = self.featureType.currentText()
+
+        self.harrisFrame.setVisible(feature_type == "Harris")
+        self.siftFrame.setVisible(feature_type == "SIFT")
+
+class Feature_Detection_Frame(QFrame):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        main_layout = QVBoxLayout(self)
+        main_layout.setAlignment(Qt.AlignTop)
+
+        grid_layout = QGridLayout()
+        grid_layout.setAlignment(Qt.AlignCenter)
+        main_layout.addLayout(grid_layout)
+
+        
+        self.original_image = QLabel("Original Image")
+        self.original_image.setObjectName("original_label")
+        self.original_image.setFixedSize(600, 425)
+        self.original_image.setAlignment(Qt.AlignCenter)
+        grid_layout.addWidget(self.original_image, 0, 0)
+
+        
+        self.template_image = QLabel("Template Image")
+        self.template_image.setObjectName("template_label")
+        self.template_image.setFixedSize(600, 425)
+        self.template_image.setAlignment(Qt.AlignCenter)
+        grid_layout.addWidget(self.template_image, 0, 1)
+
+        
+        self.roi_image = QLabel("ROI Image")
+        self.roi_image.setObjectName("roi_label")
+        self.roi_image.setFixedSize(600, 425)
+        self.roi_image.setAlignment(Qt.AlignCenter)
+        grid_layout.addWidget(self.roi_image, 1, 0)
+
+        
+        self.confusion_image = QLabel("Confusion Matrix")
+        self.confusion_image.setObjectName("confusion_label")
+        self.confusion_image.setFixedSize(600, 425)
+        self.confusion_image.setAlignment(Qt.AlignCenter)
+        grid_layout.addWidget(self.confusion_image, 1, 1)
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -147,20 +298,27 @@ class MainWindow(QMainWindow):
         self.active_contour_tab = ActiveContourTab(self)
         tab_widget.addTab(self.active_contour_tab, "Active Contour")
 
-        
+        # Feature Detection Tab
+        self.feature_detection_tab = Feature_DetectionTab(self)
+        tab_widget.addTab(self.feature_detection_tab, "Feature Detection")
+
+        tab_widget.currentChanged.connect(self.on_tab_changed)
+
         left_layout.addWidget(tab_widget)
         main_layout.addWidget(left_frame)
         
         #? Right Frame with Control Buttons and Image Display
-        right_frame = QFrame()
-        right_frame.setObjectName("right_frame")
-        right_layout = QVBoxLayout(right_frame)
-        right_layout.setAlignment(Qt.AlignHCenter | Qt.AlignTop)
+        self.right_frame = QFrame()
+        self.right_frame.setObjectName("right_frame")
+        self.right_layout = QVBoxLayout(self.right_frame)
+        self.right_layout.setAlignment(Qt.AlignHCenter | Qt.AlignTop)
+
         
         # Control Buttons Frame
         control_frame = QFrame()
         control_frame.setMaximumHeight(100)
         control_layout = QHBoxLayout(control_frame)
+        self.right_layout.addWidget(control_frame)
 
         # Control Buttons Frame
         control_buttons_frame = QFrame()
@@ -212,13 +370,13 @@ class MainWindow(QMainWindow):
         control_layout.addWidget(image_control_buttons_frame)
 
         # Add the control frame to the right layout
-        right_layout.addWidget(control_frame)
+        self.content_stack = QStackedWidget()
+        self.right_layout.addWidget(self.content_stack)
 
         # Image Display Frame
-        image_display_frame = QFrame()
-
-        image_display_frame.setFixedSize(1390,880)
-        self.image_display_layout = QVBoxLayout(image_display_frame)
+        self.image_display_frame = QFrame()  # Use self.image_display_frame instead of image_display_frame
+        self.image_display_frame.setFixedSize(1390, 880)
+        self.image_display_layout = QVBoxLayout(self.image_display_frame)
 
         self.lbl_image = QLabel("No Image Loaded")
         self.lbl_image.setObjectName("lbl_image")
@@ -226,12 +384,24 @@ class MainWindow(QMainWindow):
         self.image_display_layout.addWidget(self.lbl_image)
         self.lbl_image.mouseDoubleClickEvent = self.on_image_label_double_click
 
+        # Add the image display frame to the content stack
+        self.content_stack.addWidget(self.image_display_frame)
 
-        # Add the image display frame to the right layout
-        right_layout.addWidget(image_display_frame)
+        # Feature Detection Frame
+        self.feature_detection_frame = Feature_Detection_Frame()
+        self.content_stack.addWidget(self.feature_detection_frame)
 
         # Add the right frame to the main layout
-        main_layout.addWidget(right_frame)
+        main_layout.addWidget(self.right_frame)
+
+    def on_tab_changed(self, index):
+        """
+        Switch the content of the right frame based on the selected tab.
+        """
+        if index == 7:  # Assuming "Feature Detection" is the 8th tab (index 7)
+            self.content_stack.setCurrentWidget(self.feature_detection_frame)
+        else:
+            self.content_stack.setCurrentWidget(self.image_display_frame)
     
     def connect_signals(self):
         # Active contour tab
@@ -777,6 +947,7 @@ class MainWindow(QMainWindow):
     #     except Exception as e:
     #         print(f"Error in detect_circles: {e}")
     #         QMessageBox.critical(self, "Error", f"Failed to detect circles: {e}")
+
 
 def main():
     app = QApplication(sys.argv)
